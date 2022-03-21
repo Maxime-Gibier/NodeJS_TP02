@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "es2021"],
+    "checkJs": true,
+    "strict": true,
+    "noImplicitAny": true
+  },
+  "include": ["./scripts/**/*.js"],
+  "exclude": ["node_modules", "**/node_modules/*"]
+}
