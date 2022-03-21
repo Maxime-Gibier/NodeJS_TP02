@@ -9,7 +9,7 @@ function handleWSMessage(event) {
   }
 }
 
-const ws = new WebSocket('ws://localhost:5000/chat')
+const ws = new WebSocket('ws://127.0.0.1:5000/chat')
 ws.onopen = function open() {
   console.log('ws connected')
 }
