@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realtime WS Chat</title>
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.svg" />
+  </head>
+  <body>
+    <div class="full-height">
+      <header><h1>Realtime WS Chat</h1></header>
+      <main>
+        <div class="top-space"></div>
+      </main>
+    </div>
+    <form id="new-message">
+      <div>
+        <label for="pseudo">Pseudo</label>
+        <input
+          id="pseudo"
+          name="pseudo"
+          placeholder="John Doe"
+          autocomplete="off"
+        />
+      </div>
+      <div>
+        <label for="body">Body</label>
+        <input
+          id="body"
+          name="body"
+          placeholder="What's up?"
+          autocomplete="false"
+        />
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+    <script src="./scripts/main.js" type="module"></script>
+  </body>
+</html>
