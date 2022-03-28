@@ -6,6 +6,7 @@ async function main() {
   const res = await fetchAPI('/')
   console.log(res)
 }
+//
 main()
 
 initChat()

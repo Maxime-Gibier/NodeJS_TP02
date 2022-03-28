@@ -1,3 +1,4 @@
+import { fetchAPI } from './api'
 import { appendMessage } from './dom'
 
 /** @param {MessageEvent} event */
@@ -15,14 +16,18 @@ ws.onopen = function open() {
 }
 ws.onmessage = handleWSMessage
 
+async function getHistory() {
+  const messages = await fetchAPI('/chat/history')
+  messages.forEach(appendMessage)
+}
+getHistory()
+
 export function initChat() {
   /** @type {HTMLFormElement | null} */
   const messageForm = document.querySelector('#new-message')
   if (!messageForm) throw new Error('missing form')
-
   messageForm.addEventListener('submit', (event) => {
     event.preventDefault()
-
     const pseudo = messageForm.pseudo.value
     const body = messageForm.body.value
 

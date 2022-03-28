@@ -5,6 +5,7 @@ import { randomUUID } from 'crypto'
  * @property {string} id - an uuid
  * @property {string} pseudo - sender pseudo
  * @property {string} body - body of the message
+ * @property {Date} date - date of message publication
  */
 
 /** @type { Message[] } */
@@ -19,6 +20,7 @@ function handleNewMessage(pseudo, body) {
     id: randomUUID(),
     pseudo,
     body,
+    date: new Date(),
   }
   messages.push(message)
   return message
@@ -46,5 +48,9 @@ export async function chatRoutes(app) {
         payload: handleNewMessage(data.pseudo, data.body),
       })
     })
+  })
+
+  app.get('/history', (request, reply) => {
+    reply.send(messages.slice(-30))
   })
 }

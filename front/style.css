@@ -49,19 +49,47 @@ main .top-space {
 }
 
 .message {
-  width: 60%;
-  padding: 12px 18px;
-  border-radius: 6px;
-  border: solid 1px #bbb;
-  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.own {
+  align-items: flex-end;
+  margin-right: 10px;
+}
+
+.others {
+  align-items: flex-start;
 }
 
 .message p {
   font-size: large;
+  width: auto;
+  padding: 12px 18px;
+  border-radius: 15px;
+  margin: 2px 0px;
 }
 
-.message span {
+.pseudo {
   font-size: small;
+  color: #9d9999;
+}
+
+.own p {
+  background-color: #98b5ff;
+  color: #fff;
+  text-align: end;
+}
+
+.others p {
+  background-color: #f2f2f2;
+  color: #494949;
+}
+
+.date {
+  font-size: 10px;
 }
 
 /* FORM */
