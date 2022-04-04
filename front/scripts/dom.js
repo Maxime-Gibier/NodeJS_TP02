@@ -10,13 +10,13 @@ export function appendMessage(data) {
 
   const currentPseudo = document.querySelector('#pseudo').value
   msgEl.classList.add(data.pseudo === currentPseudo ? 'own' : 'others')
-
+  
   const pseudoSpan = document.createElement('span')
   pseudoSpan.classList.add('pseudo')
   pseudoSpan.textContent = data.pseudo
-
   // <span>Hugo</span>
   msgEl.append(pseudoSpan)
+  
 
   const bodyP = document.createElement('p')
   bodyP.textContent = data.body

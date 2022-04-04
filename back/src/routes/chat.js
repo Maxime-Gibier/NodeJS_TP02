@@ -15,6 +15,7 @@ const messages = []
  * @param {string} pseudo
  * @param {string} body
  */
+
 function handleNewMessage(pseudo, body) {
   const message = {
     id: randomUUID(),

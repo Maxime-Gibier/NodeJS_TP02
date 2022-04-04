@@ -66,10 +66,11 @@ main .top-space {
 
 .message p {
   font-size: large;
-  width: auto;
+  max-width: 60%;
   padding: 12px 18px;
   border-radius: 15px;
   margin: 2px 0px;
+  overflow-wrap: break-word;
 }
 
 .pseudo {
@@ -80,7 +81,6 @@ main .top-space {
 .own p {
   background-color: #98b5ff;
   color: #fff;
-  text-align: end;
 }
 
 .others p {
