@@ -1,4 +1,5 @@
 import { randomUUID } from 'crypto'
+import { ClientRequest } from 'http'
 
 /**
  * @typedef {Object} Message
@@ -44,6 +45,12 @@ export async function chatRoutes(app) {
   app.get('/', { websocket: true }, (connection, reply) => {
     connection.socket.on('message', (message) => {
       const data = JSON.parse(message.toString('utf-8'))
+      if (data.body.length > 120) {
+        connection.socket.send(
+          JSON.stringify({ type: 'ERROR', payload: 'Message trop long' }),
+        )
+        return
+      }
       broadcast({
         type: 'NEW_MESSAGE',
         payload: handleNewMessage(data.pseudo, data.body),

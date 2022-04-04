@@ -8,15 +8,15 @@ export function appendMessage(data) {
   msgEl.classList.add('message')
   // <div class="message"></div>
 
-  const currentPseudo = document.querySelector('#pseudo').value
+  const currentPseudo = document.querySelector('#pseudo')?.value
+  currentPseudo.p
   msgEl.classList.add(data.pseudo === currentPseudo ? 'own' : 'others')
-  
+
   const pseudoSpan = document.createElement('span')
   pseudoSpan.classList.add('pseudo')
   pseudoSpan.textContent = data.pseudo
   // <span>Hugo</span>
   msgEl.append(pseudoSpan)
-  
 
   const bodyP = document.createElement('p')
   bodyP.textContent = data.body

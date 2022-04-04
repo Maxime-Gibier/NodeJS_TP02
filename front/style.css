@@ -26,7 +26,7 @@ div.full-height {
 }
 
 header {
-  height: 60px;
+  height: 50px;
   border-bottom: solid 1px silver;
 }
 
@@ -92,18 +92,35 @@ main .top-space {
   font-size: 10px;
 }
 
+#error {
+  color: red;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: block;
+}
+
 /* FORM */
 form#new-message {
   margin: 0;
-  padding-top: 12px;
+  padding: 12px 0px;
   border-top: solid 1px silver;
 }
 
 form#new-message > div {
   display: flex;
   gap: 12px;
-  margin-bottom: 12px;
   align-items: center;
+}
+
+#pseudo {
+  margin-bottom: 12px;
 }
 
 input {
@@ -117,4 +134,5 @@ input {
 
 input[type='submit'] {
   padding: 2px;
+  margin-top: 12px;
 }

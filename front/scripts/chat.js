@@ -1,7 +1,6 @@
 import { fetchAPI } from './api'
 import { appendMessage } from './dom'
 
-
 /**
  * @typedef {Object} data
  * @property {string} id - an uuid
@@ -13,12 +12,18 @@ function createItem(data) {
   localStorage.setItem('pseudo', data['pseudo'])
 }
 
-
 /** @param {MessageEvent} event */
 function handleWSMessage(event) {
   const data = JSON.parse(event.data)
-
+  const error = document.querySelector('#error')
+  if (data?.type === 'ERROR') {
+    error?.classList.add('shown')
+    error?.classList.remove('hidden')
+    return
+  }
   if (data?.type === 'NEW_MESSAGE') {
+    error?.classList.add('hidden')
+    error?.classList.remove('shown')
     appendMessage(data.payload)
   }
   createItem(data.payload)
