@@ -45,9 +45,15 @@ export async function chatRoutes(app) {
   app.get('/', { websocket: true }, (connection, reply) => {
     connection.socket.on('message', (message) => {
       const data = JSON.parse(message.toString('utf-8'))
-      if (data.body.length > 120) {
+      if (data.body.length > 12) {
         connection.socket.send(
-          JSON.stringify({ type: 'ERROR', payload: 'Message trop long' }),
+          JSON.stringify({ type: 'ERRORBODY', payload: 'Message trop long' }),
+        )
+        return
+      }
+      if (data.pseudo.length > 20) {
+        connection.socket.send(
+          JSON.stringify({ type: 'ERRORPSEUDO', payload: 'Pseudo trop long' }),
         )
         return
       }

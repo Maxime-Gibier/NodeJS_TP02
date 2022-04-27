@@ -16,6 +16,7 @@
       </main>
     </div>
     <form id="new-message">
+      <p id="errorpseudo" class="error hidden">Pseudo trop long</p>
       <div>
         <label for="pseudo">Pseudo</label>
         <input
@@ -35,7 +36,7 @@
           maxlength="120"
         />
       </div>
-      <p id="error" class="hidden">Message trop long</p>
+      <p id="errorbody" class="error hidden">Message trop long</p>
       <div>
         <input type="submit" value="Submit" />
       </div>

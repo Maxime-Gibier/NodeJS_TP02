@@ -15,15 +15,23 @@ function createItem(data) {
 /** @param {MessageEvent} event */
 function handleWSMessage(event) {
   const data = JSON.parse(event.data)
-  const error = document.querySelector('#error')
-  if (data?.type === 'ERROR') {
-    error?.classList.add('shown')
-    error?.classList.remove('hidden')
+  const errorbody = document.querySelector('#errorbody')
+  const errorpseudo = document.querySelector('#errorpseudo')
+  if (data?.type === 'ERRORBODY') {
+    errorbody?.classList.add('shown')
+    errorbody?.classList.remove('hidden')
+    return
+  }
+  if (data?.type === 'ERRORPSEUDO') {
+    errorpseudo?.classList.add('shown')
+    errorpseudo?.classList.remove('hidden')
     return
   }
   if (data?.type === 'NEW_MESSAGE') {
-    error?.classList.add('hidden')
-    error?.classList.remove('shown')
+    errorbody?.classList.add('hidden')
+    errorbody?.classList.remove('shown')
+    errorpseudo?.classList.add('hidden')
+    errorpseudo?.classList.remove('shown')
     appendMessage(data.payload)
   }
   createItem(data.payload)

@@ -92,7 +92,7 @@ main .top-space {
   font-size: 10px;
 }
 
-#error {
+#errorpseudo, #errorbody {
   color: red;
   width: 100%;
   margin-left: 50px;
